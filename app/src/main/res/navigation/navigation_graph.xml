@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_graph"
+            app:startDestination="@id/loginFragment">
+
+    <fragment android:id="@+id/loginFragment" android:name="com.example.androidjogo.LoginFragment"
+              android:label="fragment_login" tools:layout="@layout/fragment_login">
+        <action android:id="@+id/action_loginFragment_to_perguntaFragment" app:destination="@id/perguntaFragment"/>
+        <action android:id="@+id/action_loginFragment_to_configuracaoFragment"
+                app:destination="@id/configuracaoFragment"/>
+    </fragment>
+    <fragment android:id="@+id/perguntaFragment" android:name="com.example.androidjogo.PerguntaFragment"
+              android:label="fragment_pergunta" tools:layout="@layout/fragment_pergunta"/>
+    <fragment android:id="@+id/configuracaoFragment" android:name="com.example.androidjogo.ConfiguracaoFragment"
+              android:label="fragment_configuracao" tools:layout="@layout/fragment_configuracao"/>
+</navigation>
