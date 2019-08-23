@@ -14,7 +14,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/tempo"
             app:layout_constraintBottom_toTopOf="@+id/listalternativas"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="4dp" android:background="#00E8FD"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/titulo"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="4dp" android:background="#00E8FD"/>
     <Button
             android:text="Responder Depois"
             android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/listalternativas"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp" android:background="#00FFF6"/>
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -43,5 +43,5 @@
             app:layout_constraintTop_toBottomOf="@+id/titulo"
             app:layout_constraintBottom_toTopOf="@+id/responderdepois"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="4dp" android:background="#0090FF"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

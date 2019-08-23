@@ -25,7 +25,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PerguntaFragment : Fragment(), PerguntaListener{
+class PerguntaFragment : Fragment(), PerguntaListener {
 
     override fun getPerguntaActivity(): MainActivity {
         return activity as MainActivity
@@ -46,7 +46,7 @@ class PerguntaFragment : Fragment(), PerguntaListener{
     lateinit var service: PerguntaService
     lateinit var serviceJogador: JogadorService
     lateinit var pergunta: Pergunta
-    lateinit var timer:CountDownTimer
+    lateinit var timer: CountDownTimer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,8 +62,8 @@ class PerguntaFragment : Fragment(), PerguntaListener{
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        if(activity!!.getPreferences(Context.MODE_PRIVATE).getString("email", "null")=="null"){
-            timer = object: CountDownTimer(20000, 1000) {
+        if (activity!!.getPreferences(Context.MODE_PRIVATE).getString("email", "null") == "null") {
+            timer = object : CountDownTimer(20000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     tempo.text = (millisUntilFinished / 1000).toString()
                 }
@@ -72,7 +72,7 @@ class PerguntaFragment : Fragment(), PerguntaListener{
                 }
             }
             Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.loginFragment)
-        }else{
+        } else {
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://opentdb.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -88,18 +88,22 @@ class PerguntaFragment : Fragment(), PerguntaListener{
             val dificuldade = activity!!.getPreferences(Context.MODE_PRIVATE).getString("dificuldade", "null")
 
 
-            service.pergunta("1", activity!!.getPreferences(Context.MODE_PRIVATE).getString("categoria", ""), activity!!.getPreferences(Context.MODE_PRIVATE).getString("dificuldade", "")).enqueue(object : Callback<Perguntas> {
+            service.pergunta(
+                "1",
+                activity!!.getPreferences(Context.MODE_PRIVATE).getString("categoria", ""),
+                activity!!.getPreferences(Context.MODE_PRIVATE).getString("dificuldade", "")
+            ).enqueue(object : Callback<Perguntas> {
                 override fun onFailure(call: Call<Perguntas>, t: Throwable) {}
-                override fun onResponse(call: Call<Perguntas>, response: Response<Perguntas>){
+                override fun onResponse(call: Call<Perguntas>, response: Response<Perguntas>) {
                     pergunta = response.body()!!.perguntas[0]
 
                     val respostas = ArrayList<String>()
                     var i = 0;
-                    var pontos=0
-                    var segundos:Long=0
+                    var pontos = 0
+                    var segundos: Long = 0
 
                     respostas.add(pergunta.resposta_certa)
-                    while(i<pergunta.respostas_erradas.size){
+                    while (i < pergunta.respostas_erradas.size) {
                         respostas.add(pergunta.respostas_erradas[i])
                         i++
                     }
@@ -107,32 +111,34 @@ class PerguntaFragment : Fragment(), PerguntaListener{
 
                     titulo.text = pergunta.questao
 
-                    if(pergunta.dificuldade=="hard"){
-                        segundos=15000
-                        pontos=-10
-                    }else if(pergunta.dificuldade=="medium"){
-                        segundos=30000
-                        pontos=-8
-                    }else{
-                        segundos=45000
-                        pontos=-5
+                    if (pergunta.dificuldade == "hard") {
+                        segundos = 15000
+                        pontos = -10
+                    } else if (pergunta.dificuldade == "medium") {
+                        segundos = 30000
+                        pontos = -8
+                    } else {
+                        segundos = 45000
+                        pontos = -5
                     }
 
-                    timer = object: CountDownTimer(segundos, 1000) {
+                    timer = object : CountDownTimer(segundos, 1000) {
                         override fun onTick(millisUntilFinished: Long) {
                             tempo.text = (millisUntilFinished / 1000).toString()
                         }
 
                         override fun onFinish() {
-                            serviceJogador.pontuacao(getEmail(), getSenha(), pontos).enqueue(object: Callback<Jogador> {
-                                override fun onFailure(call: Call<Jogador>, t: Throwable) {
-                                }
+                            serviceJogador.pontuacao(getEmail(), getSenha(), pontos)
+                                .enqueue(object : Callback<Jogador> {
+                                    override fun onFailure(call: Call<Jogador>, t: Throwable) {
+                                    }
 
-                                override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
-                                    Toast.makeText(activity, "Errada = - "+pontos+" pontos", Toast.LENGTH_SHORT).show()
-                                    sair()
-                                }
-                            })
+                                    override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
+                                        Toast.makeText(activity, "Errada = - " + pontos + " pontos", Toast.LENGTH_SHORT)
+                                            .show()
+                                        sair()
+                                    }
+                                })
                         }
                     }
                     timer.start()

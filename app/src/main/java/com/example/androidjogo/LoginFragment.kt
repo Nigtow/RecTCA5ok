@@ -37,20 +37,22 @@ class LoginFragment : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         services = retrofit.create<JogadorService>(JogadorService::class.java)
-        
-        login.setOnClickListener{
-            services.login(txtemail.text.toString() , txtsenha.text.toString()).enqueue(object: Callback<Jogador> {
+
+        login.setOnClickListener {
+            services.login(txtemail.text.toString(), txtsenha.text.toString()).enqueue(object : Callback<Jogador> {
                 override fun onFailure(call: Call<Jogador>, t: Throwable) {}
                 override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
-                    if(response.body()!!.sucesso){
-                        activity!!.getPreferences(Context.MODE_PRIVATE).edit().putString("email", txtemail.text.toString()).apply()
-                        activity!!.getPreferences(Context.MODE_PRIVATE).edit().putString("senha", txtsenha.text.toString()).apply()
+                    if (response.body()!!.sucesso) {
+                        activity!!.getPreferences(Context.MODE_PRIVATE).edit()
+                            .putString("email", txtemail.text.toString()).apply()
+                        activity!!.getPreferences(Context.MODE_PRIVATE).edit()
+                            .putString("senha", txtsenha.text.toString()).apply()
                         Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.configuracaoFragment)
                     }
                 }
             })
         }
-        cadastrar.setOnClickListener{
+        cadastrar.setOnClickListener {
             Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.cadastroFragment)
         }
 

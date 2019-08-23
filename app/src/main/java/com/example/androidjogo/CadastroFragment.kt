@@ -38,18 +38,19 @@ class CadastroFragment : Fragment() {
             .build()
         services = retrofit.create<JogadorService>(JogadorService::class.java)
 
-        cadastrar2.setOnClickListener{
-            services.registrar(txtnome.text.toString(),txtemail2.text.toString(), txtsenha2.text.toString()).enqueue(object: Callback<Jogador> {
-                override fun onFailure(call: Call<Jogador>, t: Throwable) {}
-                override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
-                    if(response.body()!!.sucesso){
-                        Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.loginFragment)
+        cadastrar2.setOnClickListener {
+            services.registrar(txtnome.text.toString(), txtemail2.text.toString(), txtsenha2.text.toString())
+                .enqueue(object : Callback<Jogador> {
+                    override fun onFailure(call: Call<Jogador>, t: Throwable) {}
+                    override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
+                        if (response.body()!!.sucesso) {
+                            Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.loginFragment)
+                        }
                     }
-                }
-            })
+                })
         }
 
-        login2.setOnClickListener{
+        login2.setOnClickListener {
             Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.loginFragment)
         }
     }

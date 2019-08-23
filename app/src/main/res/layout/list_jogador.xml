@@ -14,7 +14,7 @@
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/pontos"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="4dp" android:layout_marginTop="4dp" android:textColor="#000000"
-            android:textSize="18sp"/>
+            android:textSize="18sp" android:background="#00E8FD"/>
     <TextView
             android:text="TextView"
             android:layout_width="0dp"
@@ -22,7 +22,8 @@
             android:id="@+id/pontos"
             app:layout_constraintStart_toEndOf="@+id/jogador" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toStartOf="@+id/ultimaPartida" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:textColor="#000000" android:textSize="18sp"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:textColor="#000000" android:textSize="18sp"
+            android:background="#00FDD7"/>
     <TextView
             android:text="TextView"
             android:layout_width="0dp"
@@ -30,5 +31,6 @@
             android:id="@+id/ultimaPartida"
             app:layout_constraintStart_toEndOf="@+id/pontos" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:textColor="#000000" android:textSize="18sp"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:textColor="#000000" android:textSize="18sp"
+            android:background="#00E8FD"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

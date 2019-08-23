@@ -13,7 +13,7 @@ interface JogadorService {
     @POST("usuario/login")
     fun login(
         @Field("email")
-        email:String,
+        email: String,
         @Field("senha")
         password: String
     ): Call<Jogador>
@@ -23,9 +23,9 @@ interface JogadorService {
     @POST("usuario/registrar")
     fun registrar(
         @Field("nome")
-        nome:String,
+        nome: String,
         @Field("email")
-        email:String,
+        email: String,
         @Field("senha")
         password: String
     ): Call<Jogador>
@@ -35,11 +35,11 @@ interface JogadorService {
     @PUT("usuario/pontuacao")
     fun pontuacao(
         @Field("email")
-        email:String,
+        email: String,
         @Field("senha")
-        senha:String,
+        senha: String,
         @Field("pontos")
-        pontos:Int
+        pontos: Int
     ): Call<Jogador>
 
     @Headers("Accept: application/json")

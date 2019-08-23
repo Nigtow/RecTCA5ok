@@ -20,8 +20,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         nav_view.setOnNavigationItemSelectedListener {
-            NavigationUI.onNavDestinationSelected(it,
-                Navigation.findNavController(this, R.id.fragment_jogo))
+            NavigationUI.onNavDestinationSelected(
+                it,
+                Navigation.findNavController(this, R.id.fragment_jogo)
+            )
         }
     }
 }

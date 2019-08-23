@@ -2,7 +2,7 @@ package com.example.androidjogo.entidades
 
 import java.util.*
 
-class Jogador (
+class Jogador(
     var email: String,
     var mensagem: String,
     var nome: String,

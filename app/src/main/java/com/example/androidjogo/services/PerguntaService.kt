@@ -12,15 +12,15 @@ interface PerguntaService {
     @GET("api.php")
     fun pergunta(
         @Query("amount")
-        amount:String,
+        amount: String,
         @Query("category")
-        category:String,
+        category: String,
         @Query("difficulty")
-        difficulty:String
+        difficulty: String
     ): Call<Perguntas>
 
     @Headers("Accept: application/json")
     @GET("api_category.php")
     fun categoria(
-    ):Call<CategoriasResponse>
+    ): Call<CategoriasResponse>
 }

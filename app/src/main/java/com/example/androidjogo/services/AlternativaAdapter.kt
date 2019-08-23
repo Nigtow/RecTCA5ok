@@ -17,7 +17,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class AlternativaAdapter(private var alternativas: List<String>, private var pergunta: Pergunta, private var listener: PerguntaListener) :
+class AlternativaAdapter(
+    private var alternativas: List<String>,
+    private var pergunta: Pergunta,
+    private var listener: PerguntaListener
+) :
     RecyclerView.Adapter<AlternativaAdapter.ResultViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlternativaAdapter.ResultViewHolder =
@@ -33,44 +37,54 @@ class AlternativaAdapter(private var alternativas: List<String>, private var per
         holder.preencherView(alternativas[position])
 
     inner class ResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun preencherView(resposta:String) {
+        fun preencherView(resposta: String) {
             val retrofitJogador = Retrofit.Builder()
                 .baseUrl("https://tads2019-todo-list.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val serviceJogador = retrofitJogador.create<JogadorService>(JogadorService::class.java)
 
-            itemView.alternativa.text=resposta
-            itemView.alternativa.setOnClickListener(){
-                var pontos=0
-                if(pergunta.dificuldade=="hard"){
-                    pontos=10
-                }else if(pergunta.dificuldade=="medium"){
-                    pontos=8
-                }else{
-                    pontos=5
+            itemView.alternativa.text = resposta
+            itemView.alternativa.setOnClickListener() {
+                var pontos = 0
+                if (pergunta.dificuldade == "hard") {
+                    pontos = 10
+                } else if (pergunta.dificuldade == "medium") {
+                    pontos = 8
+                } else {
+                    pontos = 5
                 }
 
-                if(pergunta.resposta_certa==itemView.alternativa.text.toString()){
-                    serviceJogador.pontuacao(listener.getEmail(), listener.getSenha(), pontos).enqueue(object: Callback<Jogador> {
-                        override fun onFailure(call: Call<Jogador>, t: Throwable) {
-                        }
+                if (pergunta.resposta_certa == itemView.alternativa.text.toString()) {
+                    serviceJogador.pontuacao(listener.getEmail(), listener.getSenha(), pontos)
+                        .enqueue(object : Callback<Jogador> {
+                            override fun onFailure(call: Call<Jogador>, t: Throwable) {
+                            }
 
-                        override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
-                            Toast.makeText(listener.getPerguntaActivity(), "Certa = + "+pontos+" pontos", Toast.LENGTH_SHORT).show()
-                            listener.sair()
-                        }
-                    })
-                }else{
-                    serviceJogador.pontuacao(listener.getEmail(), listener.getSenha(), pontos*-1).enqueue(object: Callback<Jogador> {
-                        override fun onFailure(call: Call<Jogador>, t: Throwable) {
-                        }
+                            override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
+                                Toast.makeText(
+                                    listener.getPerguntaActivity(),
+                                    "Certa = + " + pontos + " pontos",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                listener.sair()
+                            }
+                        })
+                } else {
+                    serviceJogador.pontuacao(listener.getEmail(), listener.getSenha(), pontos * -1)
+                        .enqueue(object : Callback<Jogador> {
+                            override fun onFailure(call: Call<Jogador>, t: Throwable) {
+                            }
 
-                        override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
-                            Toast.makeText(listener.getPerguntaActivity(), "Errada = - "+pontos+" pontos", Toast.LENGTH_SHORT).show()
-                            listener.sair()
-                        }
-                    })
+                            override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
+                                Toast.makeText(
+                                    listener.getPerguntaActivity(),
+                                    "Errada = - " + pontos + " pontos",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                listener.sair()
+                            }
+                        })
                 }
             }
         }

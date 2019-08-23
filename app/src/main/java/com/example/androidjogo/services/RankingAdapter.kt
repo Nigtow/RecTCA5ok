@@ -25,10 +25,10 @@ class RankingAdapter(private var jogadores: List<Jogador>) :
         holder.preencherView(jogadores[position])
 
     inner class ResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun preencherView(jogador:Jogador) {
-            itemView.jogador.text=jogador.nome
-            itemView.pontos.text=jogador.pontuacao.toString()
-            itemView.ultimaPartida.text= DateFormat.getDateInstance().format(jogador.ultimaPartida)
+        fun preencherView(jogador: Jogador) {
+            itemView.jogador.text = jogador.nome
+            itemView.pontos.text = jogador.pontuacao.toString()
+            itemView.ultimaPartida.text = DateFormat.getDateInstance().format(jogador.ultimaPartida)
         }
     }
 
