@@ -6,31 +6,43 @@
                                                    android:layout_height="match_parent"
                                                    tools:context=".ConfiguracaoFragment" android:id="@+id/frameLayout">
     <Spinner
-            android:layout_width="395dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/categoriasseletor" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/categoriasSeletor"
+            app:layout_constraintTop_toBottomOf="@+id/categoriastitulo"
+            app:layout_constraintBottom_toTopOf="@+id/dificuldadetitulo" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categoriastitulo" app:layout_constraintBottom_toTopOf="@+id/dificuldadetitulo"/>
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp" android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+            android:layout_marginRight="24dp" android:layout_marginEnd="24dp"/>
     <TextView
-            android:text="Categoria"
+            android:text="@string/categoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/categoriastitulo"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/categoriasseletor"/>
-    <Spinner
-            android:layout_width="395dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/dificuldadeseletor" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/categoriasSeletor" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/dificuldadetitulo"/>
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"/>
+    <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/dificuldadeSeletor"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/dificuldadetitulo"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp" android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+            android:layout_marginRight="24dp" android:layout_marginEnd="24dp"/>
     <TextView
-            android:text="Dificuldade"
+            android:text="@string/dificuldade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dificuldadetitulo"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/categoriasseletor"
-            app:layout_constraintBottom_toTopOf="@+id/dificuldadeseletor"/>
+            app:layout_constraintTop_toBottomOf="@+id/categoriasSeletor"
+            app:layout_constraintBottom_toTopOf="@+id/dificuldadeSeletor" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

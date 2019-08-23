@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android Jogo</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Notificações</string>
+    <string name="hello_blank_fragment">Fragmento vazio</string>
+    <string name="nome">Nome</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="logar">Logar</string>
+    <string name="facil">Fácil</string>
+    <string name="dificil">Difícil</string>
+    <string name="aleatorio">Aleatório</string>
+    <string name="medio">Médio</string>
+    <string name="dificuldade">Dificuldade</string>
+    <string name="categoria">Categoria</string>
+    <string name="jogador">Jogador</string>
+    <string name="pontos">Pontos</string>
+    <string name="ultima_partida">Última Partida</string>
+</resources>

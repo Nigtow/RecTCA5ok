@@ -6,35 +6,43 @@
                                                    android:layout_height="match_parent"
                                                    tools:context=".LoginFragment" android:id="@+id/frameLayout2">
     <TextView
-            android:text="Email"
+            android:text="@string/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/email" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toTopOf="@+id/txtemail"/>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toTopOf="@+id/txtemail"
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
     <TextView
-            android:text="Senha"
+            android:text="@string/senha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/senha"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/txtemail"
-            app:layout_constraintBottom_toTopOf="@+id/txtsenha"/>
+            app:layout_constraintBottom_toTopOf="@+id/txtsenha"
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
     <Button
-            android:text="Login"
+            android:text="@string/logar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/login" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtsenha" app:layout_constraintBottom_toTopOf="@+id/cadastrar"/>
+            app:layout_constraintTop_toBottomOf="@+id/txtsenha" app:layout_constraintBottom_toTopOf="@+id/cadastrar"
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
     <Button
-            android:text="Cadastrar"
+            android:text="@string/cadastrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/cadastrar"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login"/>
+            app:layout_constraintTop_toBottomOf="@+id/login"
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +51,8 @@
             android:id="@+id/txtemail"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/email"
-            app:layout_constraintBottom_toTopOf="@+id/senha"/>
+            app:layout_constraintBottom_toTopOf="@+id/senha"
+            app:layout_constraintVertical_chainStyle="packed"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,5 +61,7 @@
             android:id="@+id/txtsenha"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/senha"
-            app:layout_constraintBottom_toTopOf="@+id/login"/>
+            app:layout_constraintBottom_toTopOf="@+id/login"
+            app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.navigation.Navigation
+import com.example.androidjogo.entidades.Categoria
 import com.example.androidjogo.entidades.CategoriasResponse
 import com.example.androidjogo.services.PerguntaService
 import kotlinx.android.synthetic.main.fragment_configuracao.*
@@ -35,9 +36,9 @@ class ConfiguracaoFragment : Fragment() {
         if(activity!!.getPreferences(Context.MODE_PRIVATE).getString("email", "null")=="null"){
             Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.loginFragment)
         }else{
-            val adapter = ArrayAdapter(activity, android.R.layout.simple_spinner_item, arrayOf<String>("Fácil", "Médio", "Difícil"))
+            val adapter = ArrayAdapter(activity, android.R.layout.simple_spinner_item, arrayOf<String>(resources.getString(R.string.aleatorio),resources.getString(R.string.facil),resources.getString(R.string.medio),resources.getString(R.string.dificil)))
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            dificuldadeseletor!!.setAdapter(adapter)
+            dificuldadeSeletor!!.setAdapter(adapter)
 
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://opentdb.com/")
@@ -48,30 +49,32 @@ class ConfiguracaoFragment : Fragment() {
                 }
                 override fun onResponse(call: Call<CategoriasResponse>, response: Response<CategoriasResponse>) {
                     categoriasResponse=response.body()!!
-                    val adaptercategoria = ArrayAdapter(activity, android.R.layout.simple_spinner_item, response.body()!!.categorias.map { Categoria -> Categoria.name })
+                    val categoriaAleatoria = Categoria("", "Random")
+                    val adaptercategoria = ArrayAdapter(activity, android.R.layout.simple_spinner_item, (response.body()!!.categorias+categoriaAleatoria))
                     adaptercategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    categoriasseletor!!.setAdapter(adaptercategoria)
+                    categoriasSeletor!!.setAdapter(adaptercategoria)
                 }
             })
 
-            categoriasseletor.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            categoriasSeletor.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    val selecionada = categoriasseletor.selectedItem.toString()
-                    val indexOf = (categoriasResponse.categorias.map { Categoria -> Categoria.name }.indexOf(selecionada))+9
-                    activity!!.getPreferences(Context.MODE_PRIVATE).edit().putString("categoria", indexOf.toString()).apply()
+                    val escolhida:Categoria = categoriasSeletor.selectedItem as Categoria
+                    activity!!.getPreferences(Context.MODE_PRIVATE).edit().putString("categoria", escolhida.id).apply()
                 }
             }
 
-            dificuldadeseletor.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            dificuldadeSeletor.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     var dificuldade = ""
-                    if(dificuldadeseletor.selectedItem.toString()=="Fácil"){
+                    if(dificuldadeSeletor.selectedItemPosition==0){
+                        dificuldade=""
+                    }else if(dificuldadeSeletor.selectedItemPosition==1){
                         dificuldade="easy"
-                    }else if(dificuldadeseletor.selectedItem.toString()=="Médio"){
+                    }else if(dificuldadeSeletor.selectedItemPosition==2){
                         dificuldade="medium"
                     }else{
                         dificuldade="hard"

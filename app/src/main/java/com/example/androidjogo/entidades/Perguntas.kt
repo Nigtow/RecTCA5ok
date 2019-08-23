@@ -1,6 +1,10 @@
 package com.example.androidjogo.entidades
 
+import com.google.gson.annotations.SerializedName
+
 data class Perguntas (
-    var response_code: Int,
-    var results: List<Pergunta>
+    @SerializedName("response_code")
+    var codigo: Int,
+    @SerializedName("results")
+    var perguntas: List<Pergunta>
 )

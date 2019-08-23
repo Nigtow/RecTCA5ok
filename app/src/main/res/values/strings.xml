@@ -6,4 +6,18 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nome">Name</string>
+    <string name="senha">Password</string>
+    <string name="email">Email</string>
+    <string name="cadastrar">Sign Up</string>
+    <string name="logar">Sign In</string>
+    <string name="dificil">Hard</string>
+    <string name="medio">Médio</string>
+    <string name="aleatorio">Random</string>
+    <string name="facil">Easy</string>
+    <string name="categoria">Category</string>
+    <string name="dificuldade">Difficulty</string>
+    <string name="jogador">Player</string>
+    <string name="pontos">Score</string>
+    <string name="ultima_partida">Last Played</string>
 </resources>
