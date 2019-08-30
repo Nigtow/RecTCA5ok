@@ -38,7 +38,7 @@ class LoginFragment : Fragment() {
             .build()
         services = retrofit.create<JogadorService>(JogadorService::class.java)
 
-        login.setOnClickListener {
+        btLoginLog.setOnClickListener {
             services.login(txtemail.text.toString(), txtsenha.text.toString()).enqueue(object : Callback<Jogador> {
                 override fun onFailure(call: Call<Jogador>, t: Throwable) {}
                 override fun onResponse(call: Call<Jogador>, response: Response<Jogador>) {
@@ -52,7 +52,7 @@ class LoginFragment : Fragment() {
                 }
             })
         }
-        cadastrar.setOnClickListener {
+        btCadastrarLogin.setOnClickListener {
             Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.cadastroFragment)
         }
 

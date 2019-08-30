@@ -11,5 +11,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/alternativa" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:background="#00FFF6" android:layout_marginTop="1dp" android:textSize="12sp"
+            android:layout_marginBottom="1dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

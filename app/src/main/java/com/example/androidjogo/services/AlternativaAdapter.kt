@@ -55,7 +55,7 @@ class AlternativaAdapter(
                     pontos = 5
                 }
 
-                if (pergunta.resposta_certa == itemView.alternativa.text.toString()) {
+                if (pergunta.respostaCerta == itemView.alternativa.text.toString()) {
                     serviceJogador.pontuacao(listener.getEmail(), listener.getSenha(), pontos)
                         .enqueue(object : Callback<Jogador> {
                             override fun onFailure(call: Call<Jogador>, t: Throwable) {

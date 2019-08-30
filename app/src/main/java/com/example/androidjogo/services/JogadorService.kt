@@ -1,7 +1,7 @@
 package com.example.androidjogo.services
 
 import com.example.androidjogo.entidades.Jogador
-import com.example.androidjogo.entidades.Jogadores
+import com.example.androidjogo.entidades.JogadoresResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -45,5 +45,5 @@ interface JogadorService {
     @Headers("Accept: application/json")
     @GET("ranking")
     fun ranking(
-    ): Call<Jogadores>
+    ): Call<JogadoresResponse>
 }

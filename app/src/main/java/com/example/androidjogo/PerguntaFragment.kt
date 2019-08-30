@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidifpr.quiz.ui.AlternativaAdapter
 import com.example.androidjogo.entidades.Jogador
 import com.example.androidjogo.entidades.Pergunta
-import com.example.androidjogo.entidades.Perguntas
+import com.example.androidjogo.entidades.PerguntasResponse
 import com.example.androidjogo.services.JogadorService
 import com.example.androidjogo.services.PerguntaListener
 import com.example.androidjogo.services.PerguntaService
@@ -92,9 +92,9 @@ class PerguntaFragment : Fragment(), PerguntaListener {
                 "1",
                 activity!!.getPreferences(Context.MODE_PRIVATE).getString("categoria", ""),
                 activity!!.getPreferences(Context.MODE_PRIVATE).getString("dificuldade", "")
-            ).enqueue(object : Callback<Perguntas> {
-                override fun onFailure(call: Call<Perguntas>, t: Throwable) {}
-                override fun onResponse(call: Call<Perguntas>, response: Response<Perguntas>) {
+            ).enqueue(object : Callback<PerguntasResponse> {
+                override fun onFailure(call: Call<PerguntasResponse>, t: Throwable) {}
+                override fun onResponse(call: Call<PerguntasResponse>, response: Response<PerguntasResponse>) {
                     pergunta = response.body()!!.perguntas[0]
 
                     val respostas = ArrayList<String>()
@@ -102,9 +102,9 @@ class PerguntaFragment : Fragment(), PerguntaListener {
                     var pontos = 0
                     var segundos: Long = 0
 
-                    respostas.add(pergunta.resposta_certa)
-                    while (i < pergunta.respostas_erradas.size) {
-                        respostas.add(pergunta.respostas_erradas[i])
+                    respostas.add(pergunta.respostaCerta)
+                    while (i < pergunta.respostasErradas.size) {
+                        respostas.add(pergunta.respostasErradas[i])
                         i++
                     }
                     respostas.shuffle()

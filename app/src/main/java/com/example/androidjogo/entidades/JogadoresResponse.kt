@@ -1,6 +1,6 @@
 package com.example.androidjogo.entidades
 
-class Jogadores(
+class JogadoresResponse(
     var sucesso: Boolean,
     var ranking: List<Jogador>
 )

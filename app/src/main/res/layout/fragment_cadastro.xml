@@ -16,7 +16,7 @@
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp" android:background="#00E8FD" android:gravity="center"
-            android:textSize="18sp"/>
+            android:textSize="18sp" android:textColor="#000000"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp" android:gravity="center" android:background="#00E8FD"
-            android:textSize="18sp"/>
+            android:textSize="18sp" android:textColor="#000000"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp" android:gravity="center" android:background="#00E8FD"
-            android:textSize="18sp"/>
+            android:textSize="18sp" android:textColor="#000000"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:ems="10"
             android:id="@+id/txtsenha2"
             app:layout_constraintTop_toBottomOf="@+id/senha2"
-            app:layout_constraintBottom_toTopOf="@+id/cadastrar2" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btCadastrarCadastro" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"/>
@@ -76,20 +76,50 @@
             android:text="@string/cadastrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cadastrar2"
+            android:id="@+id/btCadastrarCadastro"
             app:layout_constraintTop_toBottomOf="@+id/txtsenha2"
-            app:layout_constraintBottom_toTopOf="@+id/login2" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btLoginCadastro" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.504" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp" android:background="#00FFF6"/>
     <Button
             android:text="@string/logar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/login2"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/cadastrar2"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            android:id="@+id/btLoginCadastro"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/btCadastrarCadastro"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_chainStyle="packed" android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp" android:background="#00FFF6"/>
+            android:background="#00FFF6"/>
+    <ImageView
+            android:src="@drawable/people"
+            android:layout_width="86dp"
+            android:layout_height="98dp"
+            android:id="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/nome"/>
+    <ImageView
+            android:src="@drawable/cadastro"
+            android:layout_width="33dp"
+            android:layout_height="38dp"
+            android:id="@+id/imageView4"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtsenha2"
+            app:layout_constraintStart_toEndOf="@+id/btCadastrarCadastro" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" app:layout_constraintHorizontal_bias="0.0"/>
+    <ImageView
+            android:src="@drawable/check"
+            android:layout_width="34dp"
+            android:layout_height="42dp"
+            android:id="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/btLoginCadastro"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="128dp"
+            android:layout_marginRight="128dp" android:layout_marginTop="4dp"
+            app:layout_constraintStart_toEndOf="@+id/btLoginCadastro" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

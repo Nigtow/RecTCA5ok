@@ -6,11 +6,11 @@ data class Pergunta(
     @SerializedName("category")
     var categoria: String,
     @SerializedName("correct_answer")
-    var resposta_certa: String,
+    var respostaCerta: String,
     @SerializedName("difficulty")
     var dificuldade: String,
     @SerializedName("incorrect_answers")
-    var respostas_erradas: ArrayList<String>,
+    var respostasErradas: ArrayList<String>,
     @SerializedName("type")
     var tipo: String,
     @SerializedName("question")

@@ -29,6 +29,7 @@ class CadastroFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        activity!!.getPreferences(Context.MODE_PRIVATE).edit().putString("nome", "null").apply()
         activity!!.getPreferences(Context.MODE_PRIVATE).edit().putString("email", "null").apply()
         activity!!.getPreferences(Context.MODE_PRIVATE).edit().putString("senha", "null").apply()
 
@@ -38,7 +39,7 @@ class CadastroFragment : Fragment() {
             .build()
         services = retrofit.create<JogadorService>(JogadorService::class.java)
 
-        cadastrar2.setOnClickListener {
+        btCadastrarCadastro.setOnClickListener {
             services.registrar(txtnome.text.toString(), txtemail2.text.toString(), txtsenha2.text.toString())
                 .enqueue(object : Callback<Jogador> {
                     override fun onFailure(call: Call<Jogador>, t: Throwable) {}
@@ -50,7 +51,7 @@ class CadastroFragment : Fragment() {
                 })
         }
 
-        login2.setOnClickListener {
+        btLoginCadastro.setOnClickListener {
             Navigation.findNavController(activity!!, R.id.fragment_jogo).navigate(R.id.loginFragment)
         }
     }

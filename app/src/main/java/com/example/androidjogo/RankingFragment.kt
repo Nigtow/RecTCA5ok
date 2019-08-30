@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidifpr.quiz.ui.RankingAdapter
-import com.example.androidjogo.entidades.Jogadores
+import com.example.androidjogo.entidades.JogadoresResponse
 import com.example.androidjogo.services.JogadorService
 import kotlinx.android.synthetic.main.fragment_ranking.*
 import retrofit2.Call
@@ -32,11 +32,11 @@ class RankingFragment : Fragment() {
             .baseUrl("https://tads2019-todo-list.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        retrofit.create(JogadorService::class.java).ranking().enqueue(object : Callback<Jogadores> {
-            override fun onFailure(call: Call<Jogadores>, t: Throwable) {
+        retrofit.create(JogadorService::class.java).ranking().enqueue(object : Callback<JogadoresResponse> {
+            override fun onFailure(call: Call<JogadoresResponse>, t: Throwable) {
             }
 
-            override fun onResponse(call: Call<Jogadores>, response: Response<Jogadores>) {
+            override fun onResponse(call: Call<JogadoresResponse>, response: Response<JogadoresResponse>) {
                 val adapter = RankingAdapter(response.body()!!.ranking)
                 ranking.adapter = adapter
                 ranking.layoutManager = LinearLayoutManager(activity)

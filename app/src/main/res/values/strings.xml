@@ -12,7 +12,7 @@
     <string name="cadastrar">Sign Up</string>
     <string name="logar">Sign In</string>
     <string name="dificil">Hard</string>
-    <string name="medio">Médio</string>
+    <string name="medio">Medium</string>
     <string name="aleatorio">Random</string>
     <string name="facil">Easy</string>
     <string name="categoria">Category</string>
